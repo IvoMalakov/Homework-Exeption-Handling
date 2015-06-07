@@ -14,8 +14,7 @@ public class EnterNumbers
 
             int number = int.MinValue;
 
-            while (number < start || number > end)
-            {
+            
                 Console.WriteLine("Enter a number in range from [{0}] to [{1}]", start, end);
                 number = int.Parse(Console.ReadLine());
 
@@ -28,28 +27,30 @@ public class EnterNumbers
                 {
                     return number;
                 }
-            }
-
         }
 
         catch (NullReferenceException)
         {
             Console.WriteLine("Invalid number: Enter your number again: ");
+            ReadNumber(start, end);
         }
 
         catch (FormatException)
         {
             Console.WriteLine("Invalid number: Enter your number again: ");
+            ReadNumber(start, end);
         }
 
         catch (OverflowException)
         {
             Console.WriteLine("Invalid number: Enter your number again: ");
+            ReadNumber(start, end);
         }
 
         catch (ArgumentOutOfRangeException)
         {
             Console.WriteLine("Invalid number: Enter your number again:");
+            ReadNumber(start, end);
         }
 
         return int.MaxValue;
